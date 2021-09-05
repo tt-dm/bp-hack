@@ -1,3 +1,6 @@
+
+Киллер-фитчи - mascot, печенька с предсказаниями, колесо фортуны, уникальные ивенты в магазине меры, система достижений, комндные сражения, турниры
+
 ### Основной стек технологий:
 1. Node js
 2. Next.js
@@ -29,3 +32,10 @@
 2. распаковать дамп базы в back/data/database [пример базы](https://drive.google.com/file/d/1JsHu4P3vV3lRz9Bx6BLpHRjSgeYX2VKl/view?usp=sharing)
 3. установить в docker-compose.yml файле переменные ADMIN_PASSWORD и ADMIN_EMAIL для root аккаунта
 4. docker-compose up -d
+
+## РАЗРАБОТЧИКИ
+
+Дмитрий Морозов front-end
+Кирилл Швец full-stack
+Дмитрий Финогеев back-end
+Анатолий Трофимов дизайнер
