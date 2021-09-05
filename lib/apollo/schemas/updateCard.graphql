@@ -1,0 +1,14 @@
+mutation UPDATE_CARD(
+    $id: ID!
+    $comment: String
+) {
+    update_cards_item(
+        id: $id
+        data: {
+            comment: $comment
+            resolve: true
+        }
+    ) {
+        id
+    }
+}

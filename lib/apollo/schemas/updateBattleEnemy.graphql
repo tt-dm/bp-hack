@@ -1,0 +1,13 @@
+mutation UPDATE_BATTLE(
+    $id: ID!
+    $score: Int
+) {
+    update_battle_item(
+        id: $id
+        data: {
+            enemy_score: $score
+        }
+    ) {
+        id
+    }
+}

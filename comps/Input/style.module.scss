@@ -1,0 +1,27 @@
+@import "../../styles/vars";
+@import "../Typography/styles.module";
+
+
+
+.input {
+  outline: none;
+  border: none;
+  box-shadow: none;
+  &:focus{
+    caret-color: map-get($custom-colors, vio);
+  }
+  border-radius: 50px;
+}
+
+.txtinput{
+  font-family: Roboto;
+  font-size: 24px;
+  font-weight: 400;
+}
+
+@media screen and (max-width: 992px) {
+  div.txtinput{
+    font-size: 18px;
+  }
+}
+

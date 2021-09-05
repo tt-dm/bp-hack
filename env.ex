@@ -1,0 +1,2 @@
+EXPOSE_PORT=3000
+NEXT_PUBLIC_BASE_API=https://api.ru

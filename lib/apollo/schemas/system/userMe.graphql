@@ -1,0 +1,26 @@
+query USER_ME {
+    users_me {
+        id
+        email
+        first_name
+        last_name
+        patronymic
+        participants{
+            id
+            name
+            directus_users{
+                id
+                first_name
+                last_name
+            }
+        }
+        avatar {
+            id
+        }
+        title
+        balance
+        participants{
+            id
+        }
+    }
+}

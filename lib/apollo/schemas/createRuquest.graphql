@@ -1,0 +1,13 @@
+mutation CREATE_REQUEST(
+    $id: ID
+){
+    create_requests_item(
+        data: {
+            team:{
+                id: $id
+            }
+        }
+    ) {
+        id
+    }
+}

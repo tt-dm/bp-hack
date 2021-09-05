@@ -1,0 +1,73 @@
+version: '3'
+services:
+  database:
+    restart: always
+    container_name: database
+    image: postgres:12
+    volumes:
+      - ./data/database:/var/lib/postgresql/data
+    networks:
+      - directus
+    environment:
+      POSTGRES_USER: 'directus'
+      POSTGRES_PASSWORD: '1ebb3de9307e8c992e7b18f1f48767f6b83eb6befb72985a4f3043609ffa1e96'
+      POSTGRES_DB: 'hack'
+
+  cache:
+    restart: always
+    container_name: cache
+    image: redis:6
+    networks:
+      - directus
+
+  directus:
+    restart: always
+    container_name: directus
+    image: directus/directus:latest
+    ports:
+      - 8055:8055
+    volumes:
+      # By default, uploads are stored in /directus/uploads
+      # Always make sure your volumes matches the storage root when using
+      # local driver
+      - ./uploads:/directus/uploads
+      # Make sure to also mount the volume when using SQLite
+      # - ./database:/directus/database
+      # If you want to load extensions from the host
+      # - ./extensions:/directus/extensions
+    networks:
+      - directus
+    depends_on:
+      - cache
+      - database
+    environment:
+      KEY: '8edc11f0-670d-4825-88a2-128b52b57e2f'
+      SECRET: '8edc11f0-670d-4825-88a2-128b52b57e2f'
+
+      DB_CLIENT: 'pg'
+      DB_HOST: 'database'
+      DB_PORT: '5432'
+      DB_DATABASE: 'hack'
+      DB_USER: 'directus'
+      DB_PASSWORD: '1ebb3de9307e8c992e7b18f1f48767f6b83eb6befb72985a4f3043609ffa1e96'
+
+      CACHE_ENABLED: 'true'
+      CACHE_STORE: 'redis'
+      CACHE_REDIS: 'redis://cache:6379'
+
+      ADMIN_EMAIL: '####@###.ru'
+      ADMIN_PASSWORD: 'admin-hack'
+      REFRESH_TOKEN_TTL: '30d'
+      ACCESS_TOKEN_TTL: '7d'
+      TELEMETRY: 'false'
+
+      OAUTH_PROVIDERS: 'google'
+
+      OAUTH_GOOGLE_KEY: '#########################.com'
+      OAUTH_GOOGLE_SECRET: '##############'
+      OAUTH_GOOGLE_SCOPE: 'openid email'
+
+      PUBLIC_URL: 'https://admin-hack.techno-team.ru'
+
+networks:
+  directus:

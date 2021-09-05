@@ -1,0 +1,24 @@
+.search{
+  caret-color: #7B61FF;
+  border-radius: 0;
+  border-bottom: 1px solid #B4B1C3;
+  display: flex;
+
+  > input{
+    border: none;
+    background: none;
+    outline: none;
+  }
+}
+
+.search_field{
+  outline: none;
+  border: none;
+  background: none;
+  color: #B4B1C3;
+  width: 22vw !important;
+  max-width: 414px !important;
+  font-family: Roboto, serif;
+  font-size: 16px;
+  font-weight: 400;
+}

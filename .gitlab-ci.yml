@@ -1,0 +1,27 @@
+stages:
+  - staging
+  - production
+
+
+## staging
+.staging-deploy: &staging-deploy
+  stage: staging
+  when: manual
+  script:
+    - docker-compose --env-file ./envs/.env.$CI_BUILD_NAME up --build -d
+
+
+dev:
+  <<: *staging-deploy
+
+## production stage
+deploy to production:
+  stage: production
+  when: manual
+  environment:
+    name: prod
+    url: https://url.ru
+  only:
+    - master
+  script:
+    - docker-compose --env-file ./envs/.env.prod up --build -d

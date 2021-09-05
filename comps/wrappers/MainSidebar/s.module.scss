@@ -1,0 +1,47 @@
+
+.menu{
+  transform: translateX(-60px);
+}
+
+.rect{
+  background-color: #F9FBFD;
+  box-shadow: 15px 15px 0 #8F00FF;
+  border-radius: 2px;
+}
+
+.container{
+  padding: 20px 50px;
+}
+
+.logoItem {
+  border-radius: 0 40px 0 0;
+  box-shadow: 10px 10px 0 #4BDF75 !important;
+}
+
+.exitItem {
+  border-radius: 0 0 40px 0;
+  box-shadow: 10px 10px 0 red !important;
+}
+
+.bg{
+  background-color: #8F00FF !important;
+  box-shadow: 10px 10px 0 #84C2FF !important;
+}
+
+.menuItem {
+  background-color: white;
+  padding: 10px;
+  box-shadow: 10px 10px 0 rgba(0, 0, 0, 0.25);;
+  //border-radius: 0 20px 20px 0;
+  border: 1px solid #000000;
+  font-size: 24px;
+  margin: 10px 0;
+  line-height: 36px;
+  transition: all 200ms ease;
+  &:hover{
+    transition: all 200ms ease;
+    box-shadow: 0 0 0 #8F00FF;
+    background-color: #7B61FF;
+  }
+}
+

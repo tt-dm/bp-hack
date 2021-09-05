@@ -1,0 +1,62 @@
+
+
+.auth_card{
+  height: 100%;
+  padding-top: 4em;
+  background: rgba(255, 255, 255, 0.7);
+  backdrop-filter: blur(4px);
+  padding-bottom: 4em;
+  box-shadow: rgba(0, 0, 0, 0.4) 0 22px 70px 4px;
+  max-width: 540px;
+  width: 90vw;
+  border-radius: 1em;
+}
+
+.bg_main{
+  position: relative;
+  background-color: #DEE9F3;
+  background-image: url("../public/fon.png");
+  overflow: hidden;
+}
+@keyframes breath {
+  from{
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+
+}
+
+@keyframes breath2 {
+  from{
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(-360deg);
+  }
+
+}
+
+
+.ft1{
+  bottom: 0;
+  animation: breath 170s linear infinite;
+}
+
+.ft2{
+  position: absolute;
+  animation: breath2 75s linear infinite;
+  bottom: -20%;
+  left: 45%;
+}
+
+.circle{
+  bottom: -15%;
+  left: 18%;
+}
+
+.btntxt{
+  width: 100vw;
+  max-width: 300px;
+}

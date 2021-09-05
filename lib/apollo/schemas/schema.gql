@@ -1,0 +1,565 @@
+# This file was generated based on ".graphqlconfig". Do not edit manually.
+
+schema {
+    query: Query
+    mutation: Mutation
+}
+
+union transactions_from_item_union = merch | teams
+
+union transactions_to_item_union = merch | teams
+
+type Mutation {
+    create_requests_item(data: create_requests_input!): requests
+    create_requests_items(data: [create_requests_input!], filter: requests_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [requests]
+    create_teams_item(data: create_teams_input!): teams
+    create_teams_items(data: [create_teams_input!], filter: teams_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [teams]
+    create_transactions_from_item(data: create_transactions_from_input!): transactions_from
+    create_transactions_from_items(data: [create_transactions_from_input!], filter: transactions_from_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_from]
+    delete_teams_item(id: ID!): delete_one
+    delete_teams_items(ids: [ID]!): delete_many
+    update_battle_item(data: update_battle_input!, id: ID!): battle
+    update_battle_items(data: update_battle_input!, filter: battle_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [battle]
+    update_cards_item(data: update_cards_input!, id: ID!): cards
+    update_cards_items(data: update_cards_input!, filter: cards_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cards]
+    update_teams_item(data: update_teams_input!, id: ID!): teams
+    update_teams_items(data: update_teams_input!, filter: teams_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [teams]
+    update_transactions_from_item(data: update_transactions_from_input!, id: ID!): transactions_from
+    update_transactions_from_items(data: update_transactions_from_input!, filter: transactions_from_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_from]
+    update_transactions_to_item(data: update_transactions_to_input!, id: ID!): transactions_to
+    update_transactions_to_items(data: update_transactions_to_input!, filter: transactions_to_filter, ids: [ID]!, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_to]
+}
+
+type Query {
+    battle(filter: battle_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [battle]
+    battle_by_id(id: ID!): battle
+    cards(filter: cards_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cards]
+    cards_by_id(id: ID!): cards
+    cards_directus_files(filter: cards_directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cards_directus_files]
+    cards_directus_files_by_id(id: ID!): cards_directus_files
+    merch(filter: merch_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [merch]
+    merch_by_id(id: ID!): merch
+    requests(filter: requests_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [requests]
+    requests_by_id(id: ID!): requests
+    teams(filter: teams_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [teams]
+    teams_by_id(id: ID!): teams
+    transactions(filter: transactions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions]
+    transactions_by_id(id: ID!): transactions
+    transactions_from(filter: transactions_from_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_from]
+    transactions_from_by_id(id: ID!): transactions_from
+    transactions_to(filter: transactions_to_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_to]
+    transactions_to_by_id(id: ID!): transactions_to
+}
+
+type battle {
+    card_rate: Int
+    closed: Boolean
+    date_created: Date
+    enemy(filter: teams_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): teams
+    enemy_score: Int
+    id: ID
+    score: Int
+    task: String
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type cards {
+    comment: String
+    contact: String
+    date_created: Date
+    date_uodated: Date
+    doc_type: String
+    id: ID
+    raw(filter: cards_directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cards_directus_files]
+    resolve: Boolean!
+    user(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type cards_directus_files {
+    cards_id(filter: cards_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): cards
+    directus_files_id(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    id: ID
+}
+
+type delete_many {
+    ids: [ID]!
+}
+
+type delete_one {
+    id: ID!
+}
+
+type directus_files {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String!
+    filesize: Int
+    folder(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    modified_on: Date!
+    storage: String!
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    uploaded_on: Date!
+    width: Int
+}
+
+type directus_folders {
+    id: ID
+    name: String!
+    parent(filter: directus_folders_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_folders
+}
+
+type directus_roles {
+    admin_access: Boolean!
+    app_access: Boolean!
+    collection_list: JSON
+    description: String
+    enforce_tfa: Boolean!
+    icon: String!
+    id: ID
+    ip_access: [String]
+    module_list: JSON
+    name: String!
+    users(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_users]
+}
+
+type directus_users {
+    avatar(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    balance: Int!
+    cards(filter: cards_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [cards]
+    description: String
+    email: String!
+    first_name: String
+    id: ID
+    language: String
+    last_access: Date
+    last_name: String
+    last_page: String
+    location: String
+    participants(filter: teams_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): teams
+    password: String
+    patronymic: String
+    role(filter: directus_roles_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_roles
+    status: String!
+    tags: JSON
+    tfa_secret: String
+    theme: String
+    title: String
+    token: String
+}
+
+type merch {
+    date_created: Date
+    description: String
+    id: ID
+    name: String
+    price: Int!
+    remain: Int!
+    status: String!
+    thumbnail(filter: directus_files_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_files
+    type: String
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type requests {
+    date_created: Date
+    date_updated: Date
+    id: ID
+    team(filter: teams_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): teams
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    user_updated(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type teams {
+    balance: Int!
+    date_created: Date
+    date_updated: Date
+    description: String
+    directus_users(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [directus_users]
+    id: ID
+    name: String
+    requests(filter: requests_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [requests]
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    user_updated(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+    win_strike: Int!
+}
+
+type transactions {
+    amount: Int!
+    date_created: Date
+    from(filter: transactions_from_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_from]
+    id: ID
+    status: String!
+    to(filter: transactions_to_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): [transactions_to]
+    user_created(filter: directus_users_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): directus_users
+}
+
+type transactions_from {
+    collection: String
+    id: ID
+    item: transactions_from_item_union
+    transactions_id(filter: transactions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): transactions
+}
+
+type transactions_to {
+    collection: String
+    id: ID
+    item: transactions_to_item_union
+    transactions_id(filter: transactions_filter, limit: Int, offset: Int, page: Int, search: String, sort: [String]): transactions
+}
+
+input battle_filter {
+    _and: [battle_filter]
+    _or: [battle_filter]
+    card_rate: number_filter_operators
+    closed: boolean_filter_operators
+    date_created: date_filter_operators
+    enemy: teams_filter
+    enemy_score: number_filter_operators
+    id: string_filter_operators
+    score: number_filter_operators
+    task: string_filter_operators
+    user_created: directus_users_filter
+}
+
+input boolean_filter_operators {
+    _eq: Boolean
+    _neq: Boolean
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input cards_directus_files_filter {
+    _and: [cards_directus_files_filter]
+    _or: [cards_directus_files_filter]
+    cards_id: cards_filter
+    directus_files_id: directus_files_filter
+    id: number_filter_operators
+}
+
+input cards_filter {
+    _and: [cards_filter]
+    _or: [cards_filter]
+    comment: string_filter_operators
+    contact: string_filter_operators
+    date_created: date_filter_operators
+    date_uodated: date_filter_operators
+    doc_type: string_filter_operators
+    id: string_filter_operators
+    raw: cards_directus_files_filter
+    resolve: boolean_filter_operators
+    user: directus_users_filter
+}
+
+input create_requests_input {
+    team: create_teams_input
+}
+
+input create_teams_input {
+    description: String
+    directus_users: String
+    id: ID
+    name: String
+    requests: [create_requests_input]
+}
+
+input create_transactions_from_input {
+    collection: String
+    id: ID
+    item: String
+    transactions_id: String
+}
+
+input date_filter_operators {
+    _eq: String
+    _gt: String
+    _gte: String
+    _lt: String
+    _lte: String
+    _neq: String
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input directus_files_filter {
+    _and: [directus_files_filter]
+    _or: [directus_files_filter]
+    charset: string_filter_operators
+    description: string_filter_operators
+    duration: number_filter_operators
+    embed: string_filter_operators
+    filename_disk: string_filter_operators
+    filename_download: string_filter_operators
+    filesize: number_filter_operators
+    folder: directus_folders_filter
+    height: number_filter_operators
+    id: string_filter_operators
+    location: string_filter_operators
+    metadata: string_filter_operators
+    modified_by: directus_users_filter
+    modified_on: date_filter_operators
+    storage: string_filter_operators
+    tags: string_filter_operators
+    title: string_filter_operators
+    type: string_filter_operators
+    uploaded_by: directus_users_filter
+    uploaded_on: date_filter_operators
+    width: number_filter_operators
+}
+
+input directus_folders_filter {
+    _and: [directus_folders_filter]
+    _or: [directus_folders_filter]
+    id: string_filter_operators
+    name: string_filter_operators
+    parent: directus_folders_filter
+}
+
+input directus_roles_filter {
+    _and: [directus_roles_filter]
+    _or: [directus_roles_filter]
+    admin_access: boolean_filter_operators
+    app_access: boolean_filter_operators
+    collection_list: string_filter_operators
+    description: string_filter_operators
+    enforce_tfa: boolean_filter_operators
+    icon: string_filter_operators
+    id: string_filter_operators
+    ip_access: string_filter_operators
+    module_list: string_filter_operators
+    name: string_filter_operators
+    users: directus_users_filter
+}
+
+input directus_users_filter {
+    _and: [directus_users_filter]
+    _or: [directus_users_filter]
+    avatar: directus_files_filter
+    balance: number_filter_operators
+    cards: cards_filter
+    description: string_filter_operators
+    email: string_filter_operators
+    first_name: string_filter_operators
+    id: string_filter_operators
+    language: string_filter_operators
+    last_access: date_filter_operators
+    last_name: string_filter_operators
+    last_page: string_filter_operators
+    location: string_filter_operators
+    participants: teams_filter
+    password: string_filter_operators
+    patronymic: string_filter_operators
+    role: directus_roles_filter
+    status: string_filter_operators
+    tags: string_filter_operators
+    tfa_secret: string_filter_operators
+    theme: string_filter_operators
+    title: string_filter_operators
+    token: string_filter_operators
+}
+
+input merch_filter {
+    _and: [merch_filter]
+    _or: [merch_filter]
+    date_created: date_filter_operators
+    description: string_filter_operators
+    id: string_filter_operators
+    name: string_filter_operators
+    price: number_filter_operators
+    remain: number_filter_operators
+    status: string_filter_operators
+    thumbnail: directus_files_filter
+    type: string_filter_operators
+    user_created: directus_users_filter
+}
+
+input number_filter_operators {
+    _eq: Float
+    _gt: Float
+    _gte: Float
+    _in: [Float]
+    _lt: Float
+    _lte: Float
+    _neq: Float
+    _nin: [Float]
+    _nnull: Boolean
+    _null: Boolean
+}
+
+input requests_filter {
+    _and: [requests_filter]
+    _or: [requests_filter]
+    date_created: date_filter_operators
+    date_updated: date_filter_operators
+    id: string_filter_operators
+    team: teams_filter
+    user_created: directus_users_filter
+    user_updated: directus_users_filter
+}
+
+input string_filter_operators {
+    _contains: String
+    _empty: Boolean
+    _ends_with: String
+    _eq: String
+    _in: [String]
+    _ncontains: String
+    _nempty: Boolean
+    _nends_with: String
+    _neq: String
+    _nin: [String]
+    _nnull: Boolean
+    _nstarts_with: String
+    _null: Boolean
+    _starts_with: String
+}
+
+input teams_filter {
+    _and: [teams_filter]
+    _or: [teams_filter]
+    balance: number_filter_operators
+    date_created: date_filter_operators
+    date_updated: date_filter_operators
+    description: string_filter_operators
+    directus_users: directus_users_filter
+    id: string_filter_operators
+    name: string_filter_operators
+    requests: requests_filter
+    user_created: directus_users_filter
+    user_updated: directus_users_filter
+    win_strike: number_filter_operators
+}
+
+input transactions_filter {
+    _and: [transactions_filter]
+    _or: [transactions_filter]
+    amount: number_filter_operators
+    date_created: date_filter_operators
+    from: transactions_from_filter
+    id: string_filter_operators
+    status: string_filter_operators
+    to: transactions_to_filter
+    user_created: directus_users_filter
+}
+
+input transactions_from_filter {
+    _and: [transactions_from_filter]
+    _or: [transactions_from_filter]
+    collection: string_filter_operators
+    id: number_filter_operators
+    item: string_filter_operators
+    transactions_id: transactions_filter
+}
+
+input transactions_to_filter {
+    _and: [transactions_to_filter]
+    _or: [transactions_to_filter]
+    collection: string_filter_operators
+    id: number_filter_operators
+    item: string_filter_operators
+    transactions_id: transactions_filter
+}
+
+input update_battle_input {
+    card_rate: Int
+    closed: Boolean
+    date_created: Date
+    enemy: update_teams_input
+    enemy_score: Int
+    id: ID
+    score: Int
+    task: String
+    user_created: update_directus_users_input
+}
+
+input update_cards_input {
+    comment: String
+    contact: String
+    date_created: Date
+    date_uodated: Date
+    doc_type: String
+    id: ID
+    raw: String
+    resolve: Boolean
+    user: String
+}
+
+input update_directus_files_input {
+    charset: String
+    description: String
+    duration: Int
+    embed: String
+    filename_disk: String
+    filename_download: String
+    filesize: Int
+    folder: update_directus_folders_input
+    height: Int
+    id: ID
+    location: String
+    metadata: JSON
+    modified_by: update_directus_users_input
+    modified_on: Date
+    storage: String
+    tags: JSON
+    title: String
+    type: String
+    uploaded_by: update_directus_users_input
+    uploaded_on: Date
+    width: Int
+}
+
+input update_directus_folders_input {
+    id: ID
+    name: String
+    parent: update_directus_folders_input
+}
+
+input update_directus_users_input {
+    avatar: update_directus_files_input
+    description: String
+    email: String
+    first_name: String
+    language: String
+    last_name: String
+    location: String
+    password: String
+    theme: String
+    title: String
+}
+
+input update_teams_input {
+    description: String
+    directus_users: String
+    name: String
+}
+
+input update_transactions_from_input {
+    collection: String
+    id: ID
+    item: String
+    transactions_id: String
+}
+
+input update_transactions_to_input {
+    collection: String
+    id: ID
+    item: String
+    transactions_id: String
+}
+
+
+"The `JSON` scalar type represents JSON values as specified by [ECMA-404](http://www.ecma-international.org/publications/files/ECMA-ST/ECMA-404.pdf)."
+scalar JSON
+
+"ISO8601 Date values"
+scalar Date

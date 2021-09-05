@@ -1,0 +1,31 @@
+// theme colors
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+$input-focus-box-shadow: none;
+$form-select-indicator: none;
+$btn-active-box-shadow: none;
+$btn-box-shadow: none;
+$btn-focus-box-shadow: none;
+$input-box-shadow: none;
+
+@for $val from 1 through 4 {
+  .brdr-#{$val} {
+    border-radius: $val * 3px !important;
+  }
+}
+
+$custom-colors: (
+        vio: #8F00FF,
+);
+
+// breakpoints
+
+$custom-breakpoints: (
+);
+
+// shadows
+
+.btn:focus, .btn:active {
+  outline: none !important;
+  box-shadow: none !important;
+}

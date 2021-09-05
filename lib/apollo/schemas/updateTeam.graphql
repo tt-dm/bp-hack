@@ -1,0 +1,17 @@
+mutation UPDATE_TEAM(
+    $id: ID!
+    $directus_users: [update_directus_users_input]
+){
+    update_teams_item(
+        id: $id
+        data: {
+            directus_users: $directus_users
+        }
+    ){
+        directus_users{
+            id
+            first_name
+            last_name
+        }
+    }
+}

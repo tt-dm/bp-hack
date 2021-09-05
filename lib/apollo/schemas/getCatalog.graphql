@@ -1,0 +1,33 @@
+query GET_CATALOG(
+    $id: String!
+){
+    battle(
+        filter: {
+            user_created: {participants: {id: {_eq: $id}}}
+        }
+    ){
+        id
+        card_rate
+        task
+    }
+}
+
+query GET_CATALOG_ENEMY(
+    $id: String!
+){
+    battle(
+        filter: {
+            enemy: {id: {_eq: $id}}
+        }
+    ){
+        id
+        card_rate
+        task
+        id
+        card_rate
+        task
+        enemy{
+            id
+        }
+    }
+}

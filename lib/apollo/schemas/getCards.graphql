@@ -1,0 +1,9 @@
+query GET_CARDS {
+    cards {
+        id
+        doc_type
+        scan {
+            id
+        }
+    }
+}

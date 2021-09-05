@@ -1,0 +1,27 @@
+@keyframes cookieLR {
+  from{
+    transform: rotate(-10deg);
+  }
+  to {
+    transform: rotate(5deg);
+  }
+
+}
+
+
+.cookie_anime{
+  animation: cookieLR linear 0.5s infinite alternate;
+}
+
+@keyframes wraith {
+  from{
+    transform: rotate(0);
+  }
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+.wr{
+  animation: wraith 4s linear infinite;
+}

@@ -1,0 +1,19 @@
+query GET_CARD{
+    cards(
+        filter: {
+            resolve: {
+                _eq: false
+            }
+        }
+        limit: 1
+    ){
+        id
+        contact
+        doc_type
+        raw {
+            directus_files_id {
+                id
+            }
+        }
+    }
+}

@@ -1,0 +1,55 @@
+query GET_BATTLE_BY_ID(
+    $id: ID!,
+){
+    battle_by_id(
+        id: $id
+    ){
+        task
+        score
+        enemy_score
+        card_rate
+        enemy {
+            name
+            directus_users {
+                first_name
+                last_name
+                email
+                avatar {
+                    id
+                }
+            }
+            user_created {
+                first_name
+                last_name
+                email
+                avatar {
+                    id
+                }
+            }
+        }
+        user_created{
+            first_name
+            last_name
+            email
+            participants {
+                name
+                directus_users {
+                    first_name
+                    last_name
+                    email
+                    avatar {
+                        id
+                    }
+                }
+                user_created {
+                    first_name
+                    last_name
+                    email
+                    avatar {
+                        id
+                    }
+                }
+            }
+        }
+    }
+}

@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto&display=swap');
+@import "../node_modules/bootstrap/scss/functions";
+@import "../node_modules/bootstrap/scss/variables";
+@import "../node_modules/bootstrap/scss/mixins";
+@import "vars";
+
+
+$theme-colors: map-merge($theme-colors, $custom-colors);
+$grid-breakpoints: map_merge($custom-breakpoints, $grid-breakpoints);
+$container-max-widths: map_merge($custom-breakpoints, $container-max-widths);
+
+@import "../node_modules/bootstrap/scss/bootstrap";
+
+
+body{
+  height: 100%;
+}
+
+
+* {
+  font-family: Roboto, serif;
+  text-decoration: none !important;
+}
