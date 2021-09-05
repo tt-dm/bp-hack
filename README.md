@@ -5,5 +5,13 @@
 
 ## УСТАНОВКА
 
-переименовать .env.ex в .env
-NEXT_PUBLIC_BASE_API
+#### Front
+1. переименовать .env.ex в .env
+2. поставить url backenda в переменную NEXT_PUBLIC_BASE_API
+3. запустить docker-compose up -d
+
+#### Back
+1. cd back
+2. распаковать дамп базы в back/data/database [пример базы](https://drive.google.com/file/d/1JsHu4P3vV3lRz9Bx6BLpHRjSgeYX2VKl/view?usp=sharing)
+3. установить в docker-compose.yml файле переменные ADMIN_PASSWORD и ADMIN_EMAIL для root аккаунта
+4. docker-compose up -d
