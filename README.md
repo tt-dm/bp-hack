@@ -1,3 +1,17 @@
+###Основной стек технологий:
+1. Node js
+2. Next.js
+3. React
+4. Apollo
+5. Postgres
+6. Knex
+
+Демо
+Демо сервиса доступно по адресу: http://front-hack.techno-team.ru/auth
+
+Реквизиты тестового пользователя: email: pochta_6@ya.ru, пароль: qwerty15
+
+
 ## СРЕДА ЗАПУСКА
 
 1. развертывание сервиса производится на debian-like linux (debian 9+);
